@@ -1,14 +1,14 @@
 import Shape from "../assets/Shape.png";
-import Fotos from "../assets/Fotos.png";
+import Fotos from "../assets/Fotos.png"
 
 export default function Home() {
   const itens = [
-    "✴ FOTOGRAFIA DE EVENTOS",
-    "✴ FOTOGRAFIA COMERCIAL",
-    "✴ FOTOGRAFIA DE PRODUTOS",
-    "✴ FOTOGRAFIA DE CASAMENTOS",
-    "✴ FOTOGRAFIA DE PAISAGEM",
-    "✴ FOTOGRAFIA DE MARCA"
+    "✴ VÍDEOS DE EVENTOS",
+    "✴ VÍDEOS COMERCIAL",
+    "✴ VÍDEOS DE CASAMENTOS",
+    "✴ VÍDEOS DE PAISAGEM",
+    "✴ VÍDEOS DE MARCA",
+    "✴ ENSAIOS DE CASAIS",
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function Home() {
 
         {/* Texto principal */}
         <div className="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0">
-          <h1 className="text-4xl md:text-6xl flex flex-col text-center">
+          <h1 className="text-4xl md:text-5xl flex flex-col">
             <span className="text-base text-stone-500">
               Fotografias brimpressionantes de
             </span>
@@ -35,9 +35,9 @@ export default function Home() {
         </div>
 
         {/* Chamada para ação */}
-        <div className="w-full md:w-1/2 flex flex-col items-center justify-center pb-10 md:pb-20">
-          <h1 className="text-3xl md:text-5xl text-center">
-            VAMOS ➡️ <br className="block md:hidden" />
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center pb-10 md:pb-20 justify-center">
+          <h1 className="text-3xl md:text-5xl">
+            VAMOS ➡️ <br/>
             TRABALHAR JUNTOS
           </h1>
         </div>
