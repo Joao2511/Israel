@@ -8,7 +8,7 @@ export default function Depoimentos() {
     ]
     return (
         <>
-            <div className="mt-12 px-16">
+            <div className="mt-50 px-16">
                 <div className="border-b flex w-full mb-10">
                     <div className="w-1/2">
                         <p className="text-[#797C86]">DEPOIMENTOS</p>

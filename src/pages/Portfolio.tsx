@@ -25,15 +25,15 @@ export default function Portfolio() {
 
     return (
         <>
-            <div className="px-16 mt-20">
+            <div className="px-16 my-20">
                 <div>
                     <div className="w-full flex border-b border-[#1C1C21] pb-10 mb-10">
                         <div className="w-2/3">
-                            <p>PORTFÓLIO</p>
-                            <h1 className="text-4xl md:text-5xl">DESCUBRA MAIS SOBRE MINHAS FOTOGRAFIAS</h1>
+                            <p className="text-[#797C86]">PORTFÓLIO</p>
+                            <h1 className="text-4xl md:text-5xl">DESCUBRA MAIS SOBRE MINHAS <br /> FOTOGRAFIAS</h1>
                         </div>
                         <div className="flex justify-end items-center gap-4 w-1/3">
-                            <div className="flex items-center p-2 rounded-full border border-gray-700 gap-2">
+                            <div className="flex items-center p-2 rounded-full border border-[#1C1C21] gap-2">
                                 <button className="w-14 h-14 bg-[#232326] rounded-full flex items-center justify-center">
                                     <FontAwesomeIcon icon={faChevronLeft} className="text-white text-2xl" />
                                 </button>
@@ -60,7 +60,7 @@ export default function Portfolio() {
                                         <h2 className="text-lg font-semibold">{servico.titulo}</h2>
                                         <p className="text-gray-600">{servico.descricao}</p>
                                     </div>
-                                    <button className="ml-4 text-blue-500">
+                                    <button className="ml-4 text-white">
                                         Ver Projeto
                                     </button>
                                 </div>

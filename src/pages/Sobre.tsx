@@ -6,7 +6,7 @@ const Sobre = () => {
     return (
         <div className='px-6 md:px-16'>
             <div className="w-full border-b border-[#1C1C21] pb-12 mt-12 md:mt-42">
-                <div className="flex flex-col md:flex-row items-start">
+                <div className="flex flex-col md:flex-row items-center">
                     <div className="w-full md:w-1/2">
                         <h1 className="text-4xl md:text-5xl">
                             <span className="text-base">SOBRE</span>
@@ -14,7 +14,7 @@ const Sobre = () => {
                         <h1 className="text-4xl md:text-6xl">EU SOU ISRAEL CEDRAZ</h1>
                     </div>
                     <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
-                        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                        <button className="px-6 py-4 bg-[#1C1C21] text-white text-xl rounded hover:bg-blue-600 transition">
                             Saiba mais
                         </button>
                     </div>
@@ -22,7 +22,7 @@ const Sobre = () => {
             </div>
 
             <div className='w-full flex flex-col md:flex-row items-start mt-24'>
-                <div className='w-full md:w-1/2 flex justify-center'>
+                <div className='w-full md:w-1/2 flex'>
                     <img src={Isra} className='w-[95%] object-cover' alt="Israel Cedraz" />
                 </div>
                 <div className='w-full md:w-1/2 mt-8 md:mt-0 flex self-center'>

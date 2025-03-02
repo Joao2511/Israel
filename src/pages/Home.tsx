@@ -53,7 +53,7 @@ export default function Home() {
       </div>
 
       {/* Seção de Fotos */}
-      <div className="w-full">
+      <div className="w-full px-16">
         <img src={Fotos} alt="Fotos" className="w-full object-cover" />
       </div>
     </>

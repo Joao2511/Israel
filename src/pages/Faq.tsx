@@ -44,31 +44,70 @@ export default function Faq() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  // Dividindo as FAQs em duas partes
+  const faqsPart1 = faqs.slice(0, 4);
+  const faqsPart2 = faqs.slice(4);
+
   return (
-    <div className="mt-12 px-16">
+    <div className="mt-30 px-16">
       <div className="mb-6">
         <p className="text-gray-500">FAQ'S</p>
         <h1 className="text-4xl md:text-5xl">PERGUNTAS FREQUENTES</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {faqs.map((faq, index) => (
-          <div key={index} className="border p-4 rounded-lg shadow-sm">
+      <div className="flex flex-col md:flex-row">
+        {/* Primeira coluna com 4 perguntas */}
+        <div className="flex-1 border-r border-[#1C1C21]">
+          {faqsPart1.map((faq, index) => (
             <div
-              className="flex justify-between items-center cursor-pointer"
-              onClick={() => toggleFaq(index)}
+              key={index}
+              className={`border-t border-[#1C1C21] p-10  ${index === faqsPart1.length - 1 ? "border-t-0" : ""
+                } ${faq.pergunta === "How do you handle client consultations?" ? "border-b border-[#1C1C21]" : ""
+                }`}
             >
-              <h2 className="font-semibold text-lg">{faq.pergunta}</h2>
-              <FontAwesomeIcon
-                icon={openFaq === index ? faChevronUp : faChevronDown}
-                className="text-gray-500"
-                size="lg"
-              />
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => toggleFaq(index)}
+              >
+                <h2 className="font-semibold text-lg">{faq.pergunta}</h2>
+                <FontAwesomeIcon
+                  icon={openFaq === index ? faChevronUp : faChevronDown}
+                  className="text-gray-500"
+                  size="lg"
+                />
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96' : 'max-h-0'}`}>
+                <p className="text-gray-600 mt-2">{faq.resposta}</p>
+              </div>
             </div>
-            {openFaq === index && (
-              <p className="text-gray-600 mt-2">{faq.resposta}</p>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Segunda coluna com 4 perguntas */}
+        <div className="flex-1">
+          {faqsPart2.map((faq, index) => (
+            <div
+              key={index + 4}
+              className={`border-t border-[#1C1C21] p-10 ${index === faqsPart2.length - 1 ? "border-t-0" : ""
+                } ${faq.pergunta === "Can I request specific shots?" ? "border-b border-[#1C1C21]" : ""
+                }`}
+            >
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => toggleFaq(index + 4)}
+              >
+                <h2 className="font-semibold text-lg">{faq.pergunta}</h2>
+                <FontAwesomeIcon
+                  icon={openFaq === index + 4 ? faChevronUp : faChevronDown}
+                  className="text-gray-500"
+                  size="lg"
+                />
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === index + 4 ? 'max-h-96' : 'max-h-0'}`}>
+                <p className="text-gray-600 mt-2">{faq.resposta}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
