@@ -36,3 +36,7 @@
   font-family: "Fonte", sans-serif;
   color-scheme: dark;
 }
+
+html {
+  scroll-behavior: smooth;
+}

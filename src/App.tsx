@@ -6,6 +6,7 @@ import Servicos from './pages/Servicos'
 import Portfolio from './pages/Portfolio'
 import Faq from './pages/Faq'
 import Depoimentos from './pages/Depoimentos'
+import Footer from './pages/Footer'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Portfolio/>
       <Faq/>
       <Depoimentos/>
+      <Footer/>
     </>
   )
 }
