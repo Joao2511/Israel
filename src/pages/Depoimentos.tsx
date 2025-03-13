@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import Slider from "react-slick";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faStar } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from "framer-motion";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Depoimentos() {
     const depoimentos = [
@@ -43,32 +45,63 @@ export default function Depoimentos() {
         },
     ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % depoimentos.length);
+    const settings = {
+        dots: true,
+        infinite: true, // Loop infinito
+        speed: 500, // Velocidade da transição (0,5 segundo)
+        slidesToShow: 3, // Exibe 3 slides por vez
+        slidesToScroll: 1, // Avança 1 slide por vez
+        autoplay: true, // Ativa o autoplay
+        autoplaySpeed: 2000, // Intervalo de 2 segundos entre cada slide
+        cssEase: "linear",
+        centerMode: true, // Ativa o modo centralizado
+        centerPadding: "60px", // Espaçamento entre os slides e "peek" do próximo slide
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024, // Telas médias (tablets)
+                settings: {
+                    slidesToShow: 2,
+                    centerPadding: "40px", // Ajuste do espaçamento para tablets
+                },
+            },
+            {
+                breakpoint: 768, // Telas pequenas (celulares)
+                settings: {
+                    slidesToShow: 1,
+                    centerPadding: "20px", // Ajuste do espaçamento para celulares
+                },
+            },
+        ],
     };
 
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + depoimentos.length) % depoimentos.length);
-    };
+    function SampleNextArrow(props) {
+        const { onClick } = props;
+        return (
+            <button
+                className="w-14 h-14 bg-[#232326] rounded-full flex items-center justify-center absolute right-0 top-1/2 transform -translate-y-1/2 z-10 hover:cursor-pointer"
+                onClick={onClick}
+            >
+                <FontAwesomeIcon icon={faChevronRight} className="text-white text-2xl" />
+            </button>
+        );
+    }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            nextSlide();
-        }, 10000); // Troca a cada 10 segundos
-
-        return () => clearInterval(interval);
-    }, [currentIndex]);
-
-    const visibleDepoimentos = [
-        depoimentos[currentIndex],
-        depoimentos[(currentIndex + 1) % depoimentos.length],
-        depoimentos[(currentIndex + 2) % depoimentos.length],
-    ];
+    function SamplePrevArrow(props) {
+        const { onClick } = props;
+        return (
+            <button
+                className="w-14 h-14 bg-[#232326] rounded-full flex items-center justify-center absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hover:cursor-pointer"
+                onClick={onClick}
+            >
+                <FontAwesomeIcon icon={faChevronLeft} className="text-white text-2xl" />
+            </button>
+        );
+    }
 
     return (
-        <div className="mt-50 px-16 ">
+        <div className="mt-50 px-16">
             <div className="border-b flex w-full mb-10 items-center">
                 <div className="w-1/2 mb-12">
                     <p className="text-[#797C86] mb-2">DEPOIMENTOS</p>
@@ -79,20 +112,6 @@ export default function Depoimentos() {
                 <div className="w-1/2">
                     <div className="flex gap-4 justify-end">
                         <div className="flex justify-end items-center gap-4">
-                            <div className="flex items-center p-2 rounded-full border border-[#1C1C21] gap-2">
-                                <button
-                                    className="w-14 h-14 bg-[#232326] rounded-full flex items-center justify-center"
-                                    onClick={prevSlide}
-                                >
-                                    <FontAwesomeIcon icon={faChevronLeft} className="text-white text-2xl" />
-                                </button>
-                                <button
-                                    className="w-14 h-14 bg-[#232326] rounded-full flex items-center justify-center"
-                                    onClick={nextSlide}
-                                >
-                                    <FontAwesomeIcon icon={faChevronRight} className="text-white text-2xl" />
-                                </button>
-                            </div>
                             <div>
                                 <button>Ver todos os depoimentos</button>
                             </div>
@@ -100,38 +119,33 @@ export default function Depoimentos() {
                     </div>
                 </div>
             </div>
-            
 
-            <div className="flex gap-6 relative overflow-hidden">
-                <AnimatePresence mode="wait">
-                    {visibleDepoimentos.map((depoimento, index) => (
-                        <motion.div
-                            key={depoimento.nome}
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 50 }}
-                            transition={{ duration: 0.5 }}
-                            className="border p-6 rounded-lg shadow-sm flex-1"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
-                                <div>
-                                    <h3 className="font-semibold">{depoimento.nome}</h3>
-                                    <p className="text-gray-500">{depoimento.cidade}</p>
+            <div className="slider-container">
+                <Slider {...settings}>
+                    {depoimentos.map((depoimento, index) => (
+                        <div key={index} className="px-2">
+                            <div className="border p-6 rounded-lg shadow-sm ">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                                    <div>
+                                        <h3 className="font-semibold">{depoimento.nome}</h3>
+                                        <p className="text-gray-500">{depoimento.cidade}</p>
+                                    </div>
                                 </div>
+                                <div className="flex items-center gap-2 mb-4">
+                                    {[...Array(depoimento.estrelas)].map((_, i) => (
+                                        <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400" />
+                                    ))}
+                                </div>
+                                <p className="text-gray-600 mb-4">{depoimento.descricao}</p>
                             </div>
-                            <div className="flex items-center gap-2 mb-4">
-                                {[...Array(depoimento.estrelas)].map((_, i) => (
-                                    <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400" />
-                                ))}
-                            </div>
-                            <p className="text-gray-600 mb-4">{depoimento.descricao}</p>
-                        </motion.div>
+                        </div>
                     ))}
-                </AnimatePresence>
+                </Slider>
             </div>
+
             <div className="flex justify-end mt-10">
-                <h1 className="text-[250px] text-[#232329]">ISRAEL</h1>
+                <h1 className="text-[250px] text-[#232329] select-none">ISRAEL</h1>
             </div>
         </div>
     );
