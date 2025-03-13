@@ -27,13 +27,14 @@ export default function Home() {
         </div>
 
         {/* Coluna 2: Imagem Shape */}
-        <div className="w-full md:w-1/3 flex justify-center items-center">
+        <div className="w-full hidden md:w-1/3 justify-center items-center md:flex">
           <img
             src={Shape}
             alt="Shape"
             className="w-[500px] h-auto"
           />
         </div>
+
 
         {/* Coluna 3: Chamada para ação */}
         <div className="w-full md:w-1/3 flex justify-center items-center p-4">
