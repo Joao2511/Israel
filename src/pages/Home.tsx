@@ -65,13 +65,18 @@ export default function Home() {
       </div>
 
       {/* Lista de Itens */}
-      <div className="flex w-full justify-center bg-[#0E0E10] gap-2 md:gap-6 h-auto md:h-[50px] items-center text-center text-xs md:text-base px-2 py-4 md:py-0 flex-wrap">
+      <div className="flex w-full justify-center bg-[#0E0E10] gap-2 md:gap-6 items-center text-center text-xs md:text-base px-2 py-4 flex-wrap">
         {itens.map((item, index) => (
-          <div key={index} className="flex m-1 md:m-0 break-words">
+          <div
+            key={index}
+            className="m-1 break-words whitespace-normal px-2 text-center"
+          >
             {item}
           </div>
         ))}
       </div>
+        
+
 
       {/* Imagem Fotos */}
       <div className="w-full px-4 md:px-16 ">
