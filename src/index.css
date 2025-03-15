@@ -40,3 +40,21 @@
 html {
   scroll-behavior: smooth;
 }
+/* No seu arquivo CSS */
+@layer utilities {
+  .max-sm {
+    max-width: 639px;
+  }
+  .max-md {
+    max-width: 767px;
+  }
+  .max-lg {
+    max-width: 1023px;
+  }
+  .max-xl {
+    max-width: 1279px;
+  }
+  .max-2xl {
+    max-width: 1535px;
+  }
+}

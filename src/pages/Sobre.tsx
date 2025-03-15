@@ -30,7 +30,7 @@ const Sobre = () => {
                 </div>
 
                 {/* Texto e contato */}
-                <div className='w-full xl:w-1/2 mt-8 xl:mt-0'>
+                <div className='w-full flex -center xl:w-1/2 mt-8 xl:mt-0'>
                     <div className='border rounded-2xl border-[#1C1C21] p-6 md:p-8'>
                         {/* Introdução */}
                         <div className='border-b border-[#1C1C21] pb-6 mb-6'>

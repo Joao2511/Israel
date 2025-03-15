@@ -118,7 +118,7 @@ export default function Depoimentos() {
             </div>
 
             {/* Slider de depoimentos */}
-            <div className="slider-container relative bg-red-500">
+            <div className="slider-container relative">
                 <Slider {...settings}>
                     {depoimentos.map((depoimento, index) => (
                         <div key={index} className="px-2 relative">
