@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Shape from "../assets/Shape.png";
 import Fotos from "../assets/Fotos.png";
+import FotosCel from "../assets/FotosCelular.png";
 
 export default function Home() {
   const itens = [
@@ -73,8 +74,12 @@ export default function Home() {
       </div>
 
       {/* Imagem Fotos */}
-      <div className="w-full px-4 md:px-16 py-8 md:py-16">
-        <img src={Fotos} alt="Fotos" className="w-full object-cover" />
+      <div className="w-full px-4 md:px-16 ">
+        {/* Imagem para telas maiores (escondida em celular) */}
+        <img src={Fotos} alt="Fotos" className="w-full object-cover hidden md:block" />
+
+        {/* Imagem para telas de celular (escondida em telas maiores) */}
+        <img src={FotosCel} alt="Fotos Celular" className="w-full h-full block md:hidden" />
       </div>
     </>
   );
