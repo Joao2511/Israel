@@ -103,33 +103,37 @@ export default function Depoimentos() {
 
     return (
         <motion.div
-            className="mt-50 px-6 md:px-16"
+            className="mt-20 px-4 md:px-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
         >
+            {/* Seção de Título e Botão */}
             <motion.div
-                className="border-b flex flex-col md:flex-row w-full mb-10 items-center"
+                className="border-b flex flex-col md:flex-row w-full mb-10 items-center gap-6 md:gap-0"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
             >
+                {/* Texto e Título */}
                 <div className="w-full md:w-1/2 mb-6 md:mb-12">
                     <p className="text-[#797C86] mb-2">DEPOIMENTOS</p>
                     <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4">O QUE OS MEUS CLIENTES FALAM</h1>
                     <p className="text-[#62646C]">NÚMERO TOTAL DE AVALIAÇÕES</p>
                     <p>323</p>
                 </div>
-                <div className="w-full md:w-1/2 flex justify-end">
+
+                {/* Botão "Ver todos os depoimentos" */}
+                <div className="w-full md:w-1/2 flex justify-end sm:mb-4 md:mb-0">
                     <button className="px-6 py-3 bg-[#1C1C21] text-white text-base rounded hover:bg-blue-600 transition">
                         Ver todos os depoimentos
                     </button>
                 </div>
             </motion.div>
 
-
+            {/* Slider de Depoimentos */}
             <motion.div
                 className="slider-container relative"
                 initial={{ opacity: 0, y: 50 }}
@@ -147,9 +151,8 @@ export default function Depoimentos() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-
                             <div className="border p-6 rounded-lg shadow-sm h-[300px] flex flex-col">
-
+                                {/* Avatar e Nome */}
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
                                     <div>
@@ -158,14 +161,14 @@ export default function Depoimentos() {
                                     </div>
                                 </div>
 
-
+                                {/* Estrelas */}
                                 <div className="flex items-center gap-2 mb-4">
                                     {[...Array(depoimento.estrelas)].map((_, i) => (
                                         <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400" />
                                     ))}
                                 </div>
 
-
+                                {/* Descrição */}
                                 <p className="text-gray-600 overflow-y-auto flex-1">{depoimento.descricao}</p>
                             </div>
                         </motion.div>
@@ -173,7 +176,7 @@ export default function Depoimentos() {
                 </Slider>
             </motion.div>
 
-
+            {/* Texto Grande no Final */}
             <motion.div
                 className="flex justify-end mt-10"
                 initial={{ opacity: 0, y: 50 }}

@@ -98,7 +98,7 @@ export default function Home() {
           {[...itens, ...itens, ...itens, ...itens].map((item, index) => (
             <span
               key={index}
-              className="inline-block text-xs md:text-base px-4 md:px-6"
+              className="inline-block text-xs text-[#D6D0FB] md:text-base px-4 md:px-6"
             >
               {item}
             </span>
