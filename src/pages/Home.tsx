@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"; // Importe o Framer Motion
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Shape from "../assets/Shape.png";
@@ -17,35 +18,55 @@ export default function Home() {
   return (
     <>
       {/* Seção Superior */}
-      <div className="w-full flex flex-col lg:flex-row px-4 md:px-16 flex-wrap">
-
-        {/* Coluna 1: Texto (esquerda em telas maiores, topo em telas pequenas) */}
-        <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex justify-start lg:justify-start items-center mt-8 lg:mt-0">
+      <motion.div
+        className="w-full flex flex-col lg:flex-row px-4 md:px-16 flex-wrap"
+        initial={{ opacity: 0, y: 50 }} // Animação para o container principal
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Coluna 1: Texto */}
+        <motion.div
+          className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex justify-start lg:justify-start items-center mt-8 lg:mt-0"
+          initial={{ opacity: 0, x: -50 }} // Animação para o texto
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <h1 className="text-3xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl flex flex-col break-words font-semibold">
             <span className="text-lg sm:text-lg md:text-xl text-stone-500">
               Fotografias impressionantes de
             </span>
             ISRAEL CEDRAZ
           </h1>
-        </div>
+        </motion.div>
 
-        {/* Coluna 2: Imagem Shape (escondida em telas pequenas) */}
-        <div className="w-full hidden xl:flex xl:w-1/3 justify-center items-center">
+        {/* Coluna 2: Imagem Shape */}
+        <motion.div
+          className="w-full hidden xl:flex xl:w-1/3 justify-center items-center"
+          initial={{ opacity: 0, scale: 0.9 }} // Animação para a imagem Shape
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <img
             src={Shape}
             alt="Shape"
             className="w-[360px] h-auto"
           />
-        </div>
+        </motion.div>
 
-        {/* Coluna 3: Chamada para ação (direita em telas maiores, abaixo em telas pequenas) */}
-        <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex flex-col justify-center items-start lg:items-end xl:items-start mt-6 mb-12 lg:mt-0 lg:mb-0">
-          {/* Div 1: "VAMOS TRABALHAR" */}
+        {/* Coluna 3: Chamada para ação */}
+        <motion.div
+          className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex flex-col justify-center items-start lg:items-end xl:items-start mt-6 mb-12 lg:mt-0 lg:mb-0"
+          initial={{ opacity: 0, x: 50 }} // Animação para a chamada de ação
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
           <div className='flex'>
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold">VAMOS TRABALHAR</h1>
           </div>
-
-          {/* Div 2: "JUNTOS" com o botão */}
           <div className='flex items-center text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-0 md:mt-2 md:4 font-semibold'>
             <h1>JUNTOS</h1>
             <button
@@ -62,13 +83,18 @@ export default function Home() {
               />
             </button>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Lista de Itens com Marquee */}
-      <div className="w-full overflow-hidden bg-[#0E0E10] py-4">
+      <motion.div
+        className="w-full overflow-hidden bg-[#0E0E10] py-4"
+        initial={{ opacity: 0, y: 20 }} // Animação para a lista de itens
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+      >
         <div className="animate-marquee whitespace-nowrap">
-          {/* Duplicar os itens para criar um loop contínuo */}
           {[...itens, ...itens, ...itens, ...itens].map((item, index) => (
             <span
               key={index}
@@ -78,16 +104,22 @@ export default function Home() {
             </span>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Imagem Fotos */}
-      <div className="w-full px-4 md:px-16">
-        {/* Imagem para telas maiores (escondida em celular) */}
+      <motion.div
+        className="w-full px-4 md:px-16"
+        initial={{ opacity: 0, y: 50 }} // Animação para a seção de imagens
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        {/* Imagem para telas maiores */}
         <img src={Fotos} alt="Fotos" className="w-full object-cover hidden md:block" />
 
-        {/* Imagem para telas de celular (escondida em telas maiores) */}
+        {/* Imagem para telas de celular */}
         <img src={FotosCel} alt="Fotos Celular" className="w-full h-full block md:hidden" />
-      </div>
+      </motion.div>
 
       {/* Estilos CSS para a animação do Marquee */}
       <style>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'; // Importe o Framer Motion
 import Teste from "../assets/teste.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -11,10 +12,22 @@ export default function Servicos() {
     ];
 
     return (
-        <div className="mt-30 px-6 md:px-16 mb-30">
+        <motion.div
+            className="mt-30 px-6 md:px-16 mb-30"
+            initial={{ opacity: 0, y: 50 }} // Estado inicial da animação
+            whileInView={{ opacity: 1, y: 0 }} // Estado quando o elemento está visível
+            viewport={{ once: true }} // Animação ocorre apenas uma vez
+            transition={{ duration: 0.8 }} // Duração da animação
+        >
             <div>
                 {/* Seção superior */}
-                <div className="flex flex-col md:flex-row border-b border-[#1C1C21] pb-12">
+                <motion.div
+                    className="flex flex-col md:flex-row border-b border-[#1C1C21] pb-12"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }} // Adiciona um pequeno delay
+                >
                     <div className="w-full md:w-2/3 mb-6 md:mb-0">
                         <p className="text-gray-300 text-lg text-[#797C86] mb-2">SERVIÇOS</p>
                         <div className="flex items-center">
@@ -25,27 +38,31 @@ export default function Servicos() {
                     </div>
 
                     <div className="w-full md:w-1/3 flex justify-start md:justify-end items-center gap-4">
-                        <div className="flex items-center p-2 rounded-full border border-[#1C1C21] gap-2">
-                            <button className="w-10 h-10 md:w-14 md:h-14 bg-[#232326] rounded-full flex items-center justify-center">
-                                <FontAwesomeIcon icon={faChevronLeft} className="text-white text-xl md:text-2xl" />
-                            </button>
-                            <button className="w-10 h-10 md:w-14 md:h-14 bg-[#232326] rounded-full flex items-center justify-center">
-                                <FontAwesomeIcon icon={faChevronRight} className="text-white text-xl md:text-2xl" />
-                            </button>
-                        </div>
                         <div>
                             <button className="px-4 py-2 md:px-6 md:py-4 bg-[#1C1C21] text-white text-sm md:text-lg rounded hover:bg-blue-600 transition">
                                 Ver todos os serviços
                             </button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Seção de conteúdo */}
-                <div className="w-full mt-14">
+                <motion.div
+                    className="w-full mt-14"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.4 }} // Adiciona um delay maior
+                >
                     <div className="flex flex-col lg:flex-row gap-8">
                         {/* Texto e serviços */}
-                        <div className="w-full lg:w-1/2">
+                        <motion.div
+                            className="w-full lg:w-1/2"
+                            initial={{ opacity: 0, x: -50 }} // Animações específicas para o texto
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
                             <h1 className="text-3xl md:text-4xl mb-4 text-[#797C86]">EVENTOS</h1>
                             <p className="text-[#797C86] mb-6">
                                 Our event photography service is dedicated to capturing the magic of your special occasions.
@@ -55,24 +72,37 @@ export default function Servicos() {
                             <p className="mb-4 text-white text-base text-[#CACACE]">Serviços em alta</p>
                             <div>
                                 {servico.map((item, index) => (
-                                    <div key={index} className="border rounded-xl p-4 mb-2 text-gray-300">
+                                    <motion.div
+                                        key={index}
+                                        className="border rounded-xl p-4 mb-2 text-gray-300"
+                                        initial={{ opacity: 0, y: 20 }} // Animações para cada item da lista
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: index * 0.2 }} // Delay progressivo
+                                    >
                                         {item}
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Imagem */}
-                        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                        <motion.div
+                            className="w-full lg:w-1/2 flex justify-center lg:justify-end"
+                            initial={{ opacity: 0, x: 50 }} // Animações específicas para a imagem
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
                             <img
                                 src={Teste}
                                 alt="Evento Fotográfico"
                                 className="rounded-lg w-full h-auto max-w-lg lg:max-w-none object-cover"
                             />
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }

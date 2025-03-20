@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import "slick-carousel/slick/slick.css";
@@ -60,14 +61,14 @@ export default function Depoimentos() {
         prevArrow: <SamplePrevArrow />,
         responsive: [
             {
-                breakpoint: 1024, // Telas médias (tablets)
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
                     centerPadding: "40px",
                 },
             },
             {
-                breakpoint: 768, // Telas pequenas (celulares)
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                     centerPadding: "20px",
@@ -101,9 +102,20 @@ export default function Depoimentos() {
     }
 
     return (
-        <div className="mt-50 px-6 md:px-16">
-            {/* Seção superior */}
-            <div className="border-b flex flex-col md:flex-row w-full mb-10 items-center">
+        <motion.div
+            className="mt-50 px-6 md:px-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+        >
+            <motion.div
+                className="border-b flex flex-col md:flex-row w-full mb-10 items-center"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+            >
                 <div className="w-full md:w-1/2 mb-6 md:mb-12">
                     <p className="text-[#797C86] mb-2">DEPOIMENTOS</p>
                     <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4">O QUE OS MEUS CLIENTES FALAM</h1>
@@ -115,17 +127,29 @@ export default function Depoimentos() {
                         Ver todos os depoimentos
                     </button>
                 </div>
-            </div>
+            </motion.div>
 
-            {/* Slider de depoimentos */}
-            <div className="slider-container relative">
+
+            <motion.div
+                className="slider-container relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+            >
                 <Slider {...settings}>
                     {depoimentos.map((depoimento, index) => (
-                        <div key={index} className="px-2 relative">
+                        <motion.div
+                            key={index}
+                            className="px-2 relative"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
 
-                            {/* Card do depoimento */}
                             <div className="border p-6 rounded-lg shadow-sm h-[300px] flex flex-col">
-                                {/* Informações do cliente */}
+
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
                                     <div>
@@ -134,25 +158,31 @@ export default function Depoimentos() {
                                     </div>
                                 </div>
 
-                                {/* Estrelas */}
+
                                 <div className="flex items-center gap-2 mb-4">
                                     {[...Array(depoimento.estrelas)].map((_, i) => (
                                         <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400" />
                                     ))}
                                 </div>
 
-                                {/* Descrição */}
+
                                 <p className="text-gray-600 overflow-y-auto flex-1">{depoimento.descricao}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </Slider>
-            </div>
+            </motion.div>
 
-            {/* Rodapé */}
-            <div className="flex justify-end mt-10">
+
+            <motion.div
+                className="flex justify-end mt-10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+            >
                 <h1 className="text-6xl md:text-8xl lg:text-[250px] text-[#232329] select-none">ISRAEL</h1>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 }

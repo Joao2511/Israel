@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion"; // Importe o Framer Motion
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Logo from '../assets/Logo.png';
@@ -14,9 +15,21 @@ export default function Header() {
   };
 
   return (
-    <header className="relative border-b border-[#1C1C21] text-white flex flex-col md:flex-row justify-between items-center h-auto md:h-[100px] py-4 md:py-0">
+    <motion.header
+      className="relative border-b border-[#1C1C21] text-white flex flex-col md:flex-row justify-between items-center h-auto md:h-[100px] py-4 md:py-0"
+      initial={{ opacity: 0, y: -20 }} // Animação sutil de fade-in e deslocamento vertical
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
       {/* Logo */}
-      <div className="flex justify-between items-center w-full md:w-auto px-4 md:px-0">
+      <motion.div
+        className="flex justify-between items-center w-full md:w-auto px-4 md:px-0"
+        initial={{ opacity: 0, x: -20 }} // Animação para o logo
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="flex flex-col justify-center h-full ml-0 md:ml-12">
           <img src={Logo} className="w-[50px]" alt="Logo" />
         </div>
@@ -28,10 +41,10 @@ export default function Header() {
         >
           <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} size="lg" />
         </button>
-      </div>
+      </motion.div>
 
       {/* Menu de navegação */}
-      <nav
+      <motion.nav
         className={`
           ${isMobileMenuOpen ? "block" : "hidden"} 
           md:flex md:absolute md:left-1/2 md:transform md:-translate-x-1/2 
@@ -39,6 +52,10 @@ export default function Header() {
           rounded-t-xl self-end h-auto md:h-[65px] overflow-hidden w-full md:w-auto 
           max-w-[500px] bg-[#131316] md:bg-transparent
         `}
+        initial={{ opacity: 0, y: -20 }} // Animação para o menu de navegação
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}
       >
         {menuItems.map((item, index) => (
           <button
@@ -58,21 +75,33 @@ export default function Header() {
             {item}
           </button>
         ))}
-      </nav>
+      </motion.nav>
 
       {/* Botão "Entre em contato" */}
-      <div className="hidden md:block mr-6">
+      <motion.div
+        className="hidden md:block mr-6"
+        initial={{ opacity: 0, x: 20 }} // Animação para o botão "Entre em contato"
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
         <button className="bg-[#1C1C21] px-4 py-2 rounded-md">Entre em contato</button>
-      </div>
+      </motion.div>
 
       {/* Botão "Entre em contato" (mobile) */}
       {isMobileMenuOpen && (
-        <div className="w-full px-4 py-2 md:hidden">
+        <motion.div
+          className="w-full px-4 py-2 md:hidden"
+          initial={{ opacity: 0, y: 20 }} // Animação para o botão "Entre em contato" no mobile
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <button className="w-full bg-[#1C1C21] px-4 py-2 rounded-md">
             Entre em contato
           </button>
-        </div>
+        </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 }

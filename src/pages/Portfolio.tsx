@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import { motion } from "framer-motion"; // Importe o Framer Motion
 import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
@@ -49,7 +50,7 @@ export default function Portfolio() {
         const { onClick } = props;
         return (
             <button
-                className="w-10 h-10 md:w-14 md:h-14 bg-[#232326] rounded-full flex items-center justify-center absolute right-0 top-1/2 transform -translate-y-1/2 z-10 hover:cursor-pointer" // Adicionado hover:cursor-pointer
+                className="w-10 h-10 md:w-14 md:h-14 bg-[#232326] rounded-full flex items-center justify-center absolute right-0 top-1/2 transform -translate-y-1/2 z-10 hover:cursor-pointer"
                 onClick={onClick}
             >
                 <FontAwesomeIcon icon={faChevronRight} className="text-white text-xl md:text-2xl" />
@@ -61,7 +62,7 @@ export default function Portfolio() {
         const { onClick } = props;
         return (
             <button
-                className="w-10 h-10 md:w-14 md:h-14 bg-[#232326] rounded-full flex items-center justify-center absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hover:cursor-pointer" // Adicionado hover:cursor-pointer
+                className="w-10 h-10 md:w-14 md:h-14 bg-[#232326] rounded-full flex items-center justify-center absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hover:cursor-pointer"
                 onClick={onClick}
             >
                 <FontAwesomeIcon icon={faChevronLeft} className="text-white text-xl md:text-2xl" />
@@ -70,9 +71,22 @@ export default function Portfolio() {
     }
 
     return (
-        <div className="px-4 md:px-16 my-10 md:my-20">
+        <motion.div
+            className="px-4 md:px-16 my-10 md:my-20"
+            initial={{ opacity: 0, y: 50 }} // Animação para o container principal
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+        >
             <div>
-                <div className="w-full flex flex-col md:flex-row border-b border-[#1C1C21] pb-8 md:pb-10 mb-8 md:mb-10">
+                {/* Seção superior */}
+                <motion.div
+                    className="w-full flex flex-col md:flex-row border-b border-[#1C1C21] pb-8 md:pb-10 mb-8 md:mb-10"
+                    initial={{ opacity: 0, y: 50 }} // Animação para a seção superior
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }} // Adiciona um pequeno delay
+                >
                     <div className="w-full md:w-2/3">
                         <p className="text-[#797C86]">PORTFÓLIO</p>
                         <h1 className="text-3xl md:text-5xl">
@@ -84,12 +98,26 @@ export default function Portfolio() {
                             Ver todos os serviços
                         </button>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="slider-container relative">
+                {/* Carrossel */}
+                <motion.div
+                    className="slider-container relative"
+                    initial={{ opacity: 0, y: 50 }} // Animação para o carrossel
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.4 }} // Adiciona um delay maior
+                >
                     <Slider {...settings}>
                         {servicos.map((servico, index) => (
-                            <div key={index} className="px-2">
+                            <motion.div
+                                key={index}
+                                className="px-2"
+                                initial={{ opacity: 0, scale: 0.9 }} // Animação para cada slide
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }} // Delay progressivo
+                            >
                                 <div className="m-4 flex flex-col">
                                     <div className="w-full h-[300px] md:h-[500px] overflow-hidden rounded">
                                         <img
@@ -108,11 +136,11 @@ export default function Portfolio() {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </Slider>
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }

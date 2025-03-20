@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Isra from '../assets/Isra.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -6,7 +7,13 @@ const Sobre = () => {
     return (
         <div className='px-6 md:px-16 lg:px-24'>
             {/* Seção superior */}
-            <div className="w-full border-b border-[#1C1C21] pb-12 mt-12 md:mt-24 lg:mt-32">
+            <motion.div
+                className="w-full border-b border-[#1C1C21] pb-12 mt-12 md:mt-24 lg:mt-32"
+                initial={{ opacity: 0, y: 50 }} // Animação para a seção superior
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className="flex flex-col md:flex-row items-center justify-between">
                     <div className="w-full md:w-1/2">
                         <h1 className="text-4xl md:text-5xl">
@@ -20,10 +27,16 @@ const Sobre = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Seção de conteúdo */}
-            <div className='w-full flex flex-col xl:flex-row items-start mt-16 md:mt-24 lg:mt-32 gap-8'>
+            <motion.div
+                className='w-full flex flex-col xl:flex-row items-start mt-16 md:mt-24 lg:mt-32 gap-8'
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
                 {/* Imagem */}
                 <div className='w-full xl:w-1/2 flex justify-center xl:justify-start'>
                     <img src={Isra} className='w-full xl:w-[95%] object-cover rounded-lg' alt="Israel Cedraz" />
@@ -90,7 +103,7 @@ const Sobre = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
