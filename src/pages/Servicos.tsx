@@ -56,8 +56,8 @@ export default function Servicos() {
                         {/* Texto e serviços */}
                         <motion.div
                             className="w-full lg:w-1/2"
-                            initial={{ opacity: 0, x: -50 }} // Animações específicas para o texto
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0 }} // Animações específicas para o texto
+                            whileInView={{ opacity: 1}}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
@@ -87,8 +87,8 @@ export default function Servicos() {
                         {/* Imagem */}
                         <motion.div
                             className="w-full lg:w-1/2 flex justify-center lg:justify-end"
-                            initial={{ opacity: 0, x: 50 }} // Animações específicas para a imagem
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0 }} // Animações específicas para a imagem
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >

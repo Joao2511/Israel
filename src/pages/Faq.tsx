@@ -64,8 +64,8 @@ export default function Faq() {
         {/* Primeira coluna */}
         <motion.div
           className="md:border-r border-[#1C1C21]" // Aplica borda direita apenas em telas maiores que 768px
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
@@ -109,8 +109,8 @@ export default function Faq() {
 
         {/* Segunda coluna */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >

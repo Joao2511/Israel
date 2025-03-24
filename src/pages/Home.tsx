@@ -28,8 +28,8 @@ export default function Home() {
         {/* Coluna 1: Texto */}
         <motion.div
           className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex justify-start lg:justify-start items-center mt-8 lg:mt-0"
-          initial={{ opacity: 0, x: -50 }} // Animação para o texto
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }} // Animação para o texto
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
@@ -65,8 +65,8 @@ export default function Home() {
         {/* Coluna 3: Chamada para ação */}
         <motion.div
           className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex flex-col justify-center items-start lg:items-end xl:items-start mt-6 mb-12 lg:mt-0 lg:mb-0"
-          initial={{ opacity: 0, x: 50 }} // Animação para a chamada de ação
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }} // Animação para a chamada de ação
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
