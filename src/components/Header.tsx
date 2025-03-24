@@ -5,7 +5,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"; // Importe 
 import Logo from '../assets/Logo.png';
 
 export default function Header() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Estado para controlar o menu mobile
 
   const menuItems = ["Home", "Sobre", "Portfólio", "Serviços"];

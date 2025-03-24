@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'; // Importe o Framer Motion
 import Teste from "../assets/teste.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Servicos() {
     const servico = [

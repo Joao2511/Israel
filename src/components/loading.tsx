@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Importe o Framer Motion
 
 const Loading = ({ onFinish }: { onFinish: () => void }) => {

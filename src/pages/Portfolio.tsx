@@ -1,5 +1,4 @@
-import React from "react";
-import Slider from "react-slick";
+import Slider, { CustomArrowProps } from "react-slick";
 import { motion } from "framer-motion"; // Importe o Framer Motion
 import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
@@ -46,7 +45,7 @@ export default function Portfolio() {
         ],
     };
 
-    function SampleNextArrow(props) {
+    function SampleNextArrow(props: CustomArrowProps) {
         const { onClick } = props;
         return (
             <button
@@ -58,7 +57,7 @@ export default function Portfolio() {
         );
     }
 
-    function SamplePrevArrow(props) {
+    function SamplePrevArrow(props: CustomArrowProps) {
         const { onClick } = props;
         return (
             <button

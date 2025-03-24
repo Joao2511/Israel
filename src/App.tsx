@@ -7,7 +7,7 @@ import Portfolio from './pages/Portfolio';
 import Faq from './pages/Faq';
 import Depoimentos from './pages/Depoimentos';
 import Footer from './pages/Footer';
-import Loading from './components/Loading'; // Importe o componente de loading
+import Loading from '../src/components/loading'; // Importe o componente de loading
 
 function App() {
   const [isLoading, setIsLoading] = useState(true); // Estado para controlar o loading
