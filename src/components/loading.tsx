@@ -23,6 +23,10 @@ const Loading = ({ onFinish }: { onFinish: () => void }) => {
           animate={{ opacity: 1 }} // Mantém a opacidade em 1 enquanto visível
           exit={{ opacity: 0 }} // Animação de saída: fade-out
           transition={{ duration: 0.5 }} // Duração da animação de fade-out
+          style={{
+            pointerEvents: 'none', // Desativa todos os eventos de ponteiro
+            userSelect: 'none',   // Impede seleção de texto
+          }}
         >
           <video
             autoPlay
@@ -33,6 +37,10 @@ const Loading = ({ onFinish }: { onFinish: () => void }) => {
               onFinish(); // Finaliza o loading quando o vídeo termina
             }}
             className="w-[652px] h-auto object-cover"
+            style={{
+              pointerEvents: 'none', // Desativa todos os eventos de ponteiro
+              userSelect: 'none',   // Impede seleção de texto
+            }}
           >
             <source src="/logoAnimada.mp4" type="video/mp4" /> {/* Caminho correto */}
             Seu navegador não suporta o vídeo.

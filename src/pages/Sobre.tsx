@@ -70,7 +70,7 @@ const Sobre = () => {
                             </div>
 
                             {/* Redes sociais e botões */}
-                            <div className='flex flex-col xl:flex-row items-center gap-6'>
+                            <div className='flex flex-col xl:flex-row items-center justify-between   gap-6'>
                                 {/* Ícones das redes sociais */}
                                 <div className='flex gap-4 justify-center items-center border border-[#1C1C21] rounded-full p-4 w-full md:w-auto mx-auto xl:mx-0'>
                                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
