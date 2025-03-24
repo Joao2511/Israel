@@ -60,7 +60,7 @@ export default function Faq() {
         <p className="text-gray-500">FAQ'S</p>
         <h1 className="text-4xl md:text-5xl">PERGUNTAS FREQUENTES</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Usando grid para dividir em duas colunas */}
+      <div className="grid grid-cols-1 md:grid-cols-2"> {/* Usando grid para dividir em duas colunas */}
         {/* Primeira coluna */}
         <motion.div
           className="md:border-r border-[#1C1C21]" // Aplica borda direita apenas em telas maiores que 768px

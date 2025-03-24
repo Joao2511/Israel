@@ -44,7 +44,7 @@ export default function Home() {
         {/* Coluna 2: Imagem Shape */}
         <motion.div
           className="w-full hidden xl:flex xl:w-1/3 justify-center items-center"
-          initial={{ opacity: 0, scale: 0.9 }} // Animação para a imagem Shape
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -53,6 +53,12 @@ export default function Home() {
             src={Shape}
             alt="Shape"
             className="w-[360px] h-auto"
+            draggable="false"  // Impede que a imagem seja arrastada
+            loading="lazy"     // Otimização de carregamento
+            style={{
+              pointerEvents: 'none', // Desativa todos os eventos de ponteiro
+              userSelect: 'none',   // Impede seleção de texto
+            }}
           />
         </motion.div>
 
