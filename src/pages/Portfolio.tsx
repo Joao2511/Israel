@@ -23,7 +23,7 @@ export default function Portfolio() {
     ];
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3, // Desktop padrão
@@ -93,7 +93,7 @@ export default function Portfolio() {
                             DESCUBRA MAIS SOBRE MINHAS <br /> FOTOGRAFIAS
                         </h1>
                     </div>
-                    <div className="flex justify-center md:justify-end items-center gap-4 w-full md:w-1/3 mt-4 md:mt-0">
+                    <div className="flex justify-start md:justify-end items-center gap-4 w-full md:w-1/3 mt-4 md:mt-0">
                         <button className="bg-[#232326] text-white px-6 py-2 rounded-md">
                             Ver todos os serviços
                         </button>

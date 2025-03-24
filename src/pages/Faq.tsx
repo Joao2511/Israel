@@ -45,13 +45,12 @@ export default function Faq() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-
   const faqsPart1 = faqs.slice(0, 4);
   const faqsPart2 = faqs.slice(4);
 
   return (
     <motion.div
-      className="mt-30 px-16"
+      className="mt-30 px-4 md:px-16" // Ajuste o padding para telas menores
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -61,10 +60,10 @@ export default function Faq() {
         <p className="text-gray-500">FAQ'S</p>
         <h1 className="text-4xl md:text-5xl">PERGUNTAS FREQUENTES</h1>
       </div>
-      <div className="flex flex-col md:flex-row">
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Usando grid para dividir em duas colunas */}
+        {/* Primeira coluna */}
         <motion.div
-          className="flex-1 border-r border-[#1C1C21]"
+          className="md:border-r border-[#1C1C21]" // Aplica borda direita apenas em telas maiores que 768px
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -73,7 +72,7 @@ export default function Faq() {
           {faqsPart1.map((faq, index) => (
             <motion.div
               key={index}
-              className={`border-t border-[#1C1C21] p-10 ${index === faqsPart1.length - 1 ? "border-t-0" : ""
+              className={`border-t border-[#1C1C21] p-6 md:p-10 ${index === faqsPart1.length - 1 ? "border-t-0" : ""
                 } ${faq.pergunta === "How do you handle client consultations?" ? "border-b border-[#1C1C21]" : ""
                 }`}
               initial={{ opacity: 0, y: 20 }}
@@ -108,9 +107,8 @@ export default function Faq() {
           ))}
         </motion.div>
 
-
+        {/* Segunda coluna */}
         <motion.div
-          className="flex-1"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -119,7 +117,7 @@ export default function Faq() {
           {faqsPart2.map((faq, index) => (
             <motion.div
               key={index + 4}
-              className={`border-t border-[#1C1C21] p-10 ${index === faqsPart2.length - 1 ? "border-t-0" : ""
+              className={`border-t border-[#1C1C21] p-6 md:p-10 ${index === faqsPart2.length - 1 ? "border-t-0" : ""
                 } ${faq.pergunta === "Can I request specific shots?" ? "border-b border-[#1C1C21]" : ""
                 }`}
               initial={{ opacity: 0, y: 20 }}

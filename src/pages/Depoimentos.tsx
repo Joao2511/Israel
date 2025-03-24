@@ -47,7 +47,7 @@ export default function Depoimentos() {
     ];
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -126,7 +126,7 @@ export default function Depoimentos() {
                 </div>
 
                 {/* Botão "Ver todos os depoimentos" */}
-                <div className="w-full md:w-1/2 flex justify-end sm:mb-4 md:mb-0">
+                <div className="w-full mb-8 md:w-1/2 flex justify-start md:justify-end md:mb-0">
                     <button className="px-6 py-3 bg-[#1C1C21] text-white text-base rounded hover:bg-blue-600 transition">
                         Ver todos os depoimentos
                     </button>

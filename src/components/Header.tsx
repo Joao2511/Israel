@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion"; // Importe o Framer Motion
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"; // Importe os ícones de menu e fechar
 import Logo from '../assets/Logo.png';
 
 export default function Header() {
@@ -46,12 +46,12 @@ export default function Header() {
       {/* Menu de navegação */}
       <motion.nav
         className={`
-          ${isMobileMenuOpen ? "block" : "hidden"} 
-          md:flex md:absolute md:left-1/2 md:transform md:-translate-x-1/2 
-          flex-col md:flex-row border-t border-l border-r border-[#1C1C21] 
-          rounded-t-xl self-end h-auto md:h-[65px] overflow-hidden w-full md:w-auto 
-          max-w-[500px] bg-[#131316] md:bg-transparent
-        `}
+    ${isMobileMenuOpen ? "block" : "hidden"} 
+    md:flex md:absolute md:left-1/2 md:transform md:-translate-x-1/2 
+    flex-col md:flex-row border-t border-l border-r border-[#1C1C21] 
+    rounded-t-xl self-end h-auto md:h-[65px] overflow-hidden w-full md:w-auto 
+    max-w-[500px] bg-transparent
+  `}
         initial={{ opacity: 0, y: -20 }} // Animação para o menu de navegação
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -61,12 +61,13 @@ export default function Header() {
           <button
             key={index}
             className={`
-              flex-1 text-center px-6 py-2 transition-colors duration-200 
-              ${active === index ? "bg-[#131316]" : "hover:bg-[#131316]"} 
-              ${index !== 0 && "border-l border-[#1C1C21]"} 
-              ${index === 0 && active === index ? "rounded-tl-xl" : ""} 
-              ${index === menuItems.length - 1 && active === index ? "rounded-tr-xl" : ""}
-            `}
+        w-full text-left px-6 py-3 text-white hover:text-[#4A2CED] transition-colors duration-200
+        md:text-center md:px-4 md:py-2 md:hover:bg-[#131316]
+        ${active === index ? "text-[#4A2CED]" : ""}
+        ${index !== 0 && "border-l border-[#1C1C21]"} 
+        ${index === 0 ? "rounded-tl-xl" : "rounded-none"} // Apenas o primeiro item tem border-radius esquerdo
+        ${index === menuItems.length - 1 ? "rounded-tr-xl" : "rounded-none"} // Apenas o último item tem border-radius direito
+      `}
             onClick={() => {
               setActive(index);
               setIsMobileMenuOpen(false); // Fecha o menu mobile ao clicar em um item
@@ -105,3 +106,7 @@ export default function Header() {
     </motion.header>
   );
 }
+
+
+
+

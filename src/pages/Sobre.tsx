@@ -21,7 +21,7 @@ const Sobre = () => {
                         </h1>
                         <h1 className="text-4xl md:text-5xl mt-2">EU SOU ISRAEL CEDRAZ</h1>
                     </div>
-                    <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
+                    <div className="w-full md:w-1/2 flex justify-start md:justify-end mt-6 md:mt-0">
                         <button className="px-6 py-3 md:px-8 md:py-4 bg-[#1C1C21] text-white text-base md:text-lg rounded hover:bg-blue-600 transition">
                             Saiba mais
                         </button>
@@ -72,7 +72,7 @@ const Sobre = () => {
                             {/* Redes sociais e botões */}
                             <div className='flex flex-col xl:flex-row items-center gap-6'>
                                 {/* Ícones das redes sociais */}
-                                <div className='flex gap-4 justify-center items-center border border-[#1C1C21] rounded-full p-4 w-auto mx-auto xl:mx-0'>
+                                <div className='flex gap-4 justify-center items-center border border-[#1C1C21] rounded-full p-4 w-full md:w-auto mx-auto xl:mx-0'>
                                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                                         <button className='w-10 h-10 md:w-12 md:h-12 bg-[#1C1C21] rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors'>
                                             <FontAwesomeIcon icon={faFacebook} className="text-white text-xl md:text-2xl" />
