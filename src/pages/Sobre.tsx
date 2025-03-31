@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Isra from '../assets/Isra.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBehanceSquare, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faBehanceSquare, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const Sobre = () => {
     return (
