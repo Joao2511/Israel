@@ -93,9 +93,9 @@ export default function Portfolio() {
                         </h1>
                     </div>
                     <div className="flex justify-start md:justify-end items-center gap-4 w-full md:w-1/3 mt-4 md:mt-0">
-                        <button className="bg-[#232326] text-white px-6 py-2 rounded-md">
+                        <a href="https://israelcedraz.pixieset.com/" target="_blank" rel="noopener noreferrer" className="bg-[#232326] text-white px-6 py-4 rounded-md cursor-pointer">
                             Ver todos os serviços
-                        </button>
+                        </a>
                     </div>
                 </motion.div>
 

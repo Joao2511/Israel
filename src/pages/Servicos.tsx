@@ -37,9 +37,11 @@ export default function Servicos() {
 
                     <div className="w-full md:w-1/3 flex justify-start md:justify-end items-center gap-4">
                         <div>
-                            <button className="px-4 py-2 md:px-6 md:py-4 bg-[#1C1C21] text-white text-sm md:text-lg rounded hover:bg-blue-600 transition">
-                                Ver todos os serviços
-                            </button>
+                            <a href="https://israelcedraz.pixieset.com/" target="_blank" rel="noopener noreferrer">
+                                <button className="px-4 py-2 md:px-6 md:py-4 bg-[#1C1C21] text-white text-sm md:text-lg rounded hover:bg-blue-600 transition cursor-pointer">
+                                    Ver todos os serviços
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </motion.div>
@@ -57,7 +59,7 @@ export default function Servicos() {
                         <motion.div
                             className="w-full lg:w-1/2"
                             initial={{ opacity: 0 }} // Animações específicas para o texto
-                            whileInView={{ opacity: 1}}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >

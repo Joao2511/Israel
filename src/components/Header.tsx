@@ -86,7 +86,11 @@ export default function Header() {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <button className="bg-[#1C1C21] px-4 py-2 rounded-md">Entre em contato</button>
+        <button className="bg-[#1C1C21] px-4 py-2 rounded-md">
+          <a href="https://wa.me/5561995997277" target="_blank" rel="noopener noreferrer">
+          Entre em contato
+          </a>
+        </button>
       </motion.div>
 
       {/* Botão "Entre em contato" (mobile) */}

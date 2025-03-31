@@ -83,10 +83,12 @@ export default function Home() {
                 filter: "drop-shadow(0px 4px 10px rgba(74, 44, 237, 0.5))",
               }}
             >
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                style={{ transform: "rotate(320deg)", fontSize: "clamp(18px, 2.5vw, 24px)" }}
-              />
+              <a href="https://wa.me/5561995997277" className="flex items-center" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  style={{ transform: "rotate(320deg)", fontSize: "clamp(18px, 2.5vw, 24px)" }}
+                />
+              </a>
             </button>
           </div>
         </motion.div>
